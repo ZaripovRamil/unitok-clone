@@ -1,0 +1,30 @@
+﻿@model EntitySearchResultVm
+@if ((Model.Users != null && Model.Users.Any()) || (Model.Tokens != null && Model.Tokens.Any()))
+{
+    @if (Model.Users != null && Model.Users.Any())
+    {
+        <p>Users</p>
+        <ul class="search-results">
+            @foreach (var user in Model.Users)
+            {
+                @await Html.PartialAsync("_UserSearchResultPartial", user)
+            @* Or, if you prefer to use the async version: *@
+            @* @await Html.PartialAsync("_UserSearchResultPartial", user) *@
+            }
+        </ul>
+    }
+    @if (Model.Tokens != null && Model.Tokens.Any())
+    {
+        <p>Tokens</p>
+        <ul class="search-results">
+            @foreach (var token in Model.Tokens)
+            {
+                @await Html.PartialAsync("_TokenSearchResultPartial", token)
+            }
+        </ul>
+    }
+}
+else
+{
+    <p>No results found</p>
+}

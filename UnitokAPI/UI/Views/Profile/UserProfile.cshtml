@@ -1,0 +1,76 @@
+@model UserProfileVM
+<div class="main__author" data-bg="../img/home/cover.jpg"></div>
+<div class="container">
+<div class="row row--grid">
+    <div class="col-12 col-xl-3">
+        <div class="author author--page">
+            <div class="author__meta">
+                <a class="author__avatar author__avatar--verified">
+                    <img src="~/img/avatars/avatar5.jpg" alt="">
+                </a>
+                <h1 class="author__name">@Model.FirstName @Model.LastName</h1>
+                <h2 class="author__nickname">@Model.Nickname</h2>
+                <div class="author__code">
+                    <input type="text" value="@Model.Wallet" id="author-code">
+                    
+                    <button type="button">
+                        <span>Copied</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M18,19H6a3,3,0,0,1-3-3V8A1,1,0,0,0,1,8v8a5,5,0,0,0,5,5H18a1,1,0,0,0,0-2Zm5-9.06a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.09,0L16.06,3H8A3,3,0,0,0,5,6v8a3,3,0,0,0,3,3H20a3,3,0,0,0,3-3V10S23,10,23,9.94ZM17,6.41,19.59,9H18a1,1,0,0,1-1-1ZM21,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V6A1,1,0,0,1,8,5h7V8a3,3,0,0,0,3,3h3Z"/>
+                        </svg>
+                    </button>
+                </div>
+                @if (Model.IsAuthorized)
+                {
+                   <h2 class="author__name">Balance: @Model.Balance</h2>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-xl-9">
+        <div class="profile">
+            <!-- tabs nav -->
+            <ul class="nav nav-tabs profile__tabs" id="profile__tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#userOnAuctionPage" role="tab" aria-controls="tab-1" aria-selected="true">On Sale</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#userCreatedPage" role="tab" aria-controls="tab-2" aria-selected="false">Created</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#userActivityPage" role="tab" aria-controls="tab-3" aria-selected="false">My Activity</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#userOwnedTokens" role="tab" aria-controls="tab-5" aria-selected="false">Owned Tokens</a>
+                </li>
+                @if (Model.IsAuthorized)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#userSettingsPage" role="tab" aria-controls="tab-4" aria-selected="false">Settings</a>
+                    </li>
+                }
+                
+            </ul>
+            <!-- end tabs nav -->
+        </div>
+
+        <!-- content tabs -->
+        <div class="tab-content">
+            @await Html.PartialAsync("./_userOnAuction.cshtml", Model.OnAuction,new ViewDataDictionary(ViewData))
+            @await Html.PartialAsync("./_userCreated.cshtml", Model.CreatedTokens,new ViewDataDictionary(ViewData))
+            @await Html.PartialAsync("./_userActivity.cshtml", new LogsVM(){AuctionFinishLogs = Model.AuctionFinishLogs, AuctionParticipationLogs  = Model.AuctionParticipationLogs,TokenCreationLogs = Model.TokenCreationLogs},new ViewDataDictionary(ViewData))
+            @await Html.PartialAsync("./_userOwnedTokens.cshtml", Model.OwnedTokens,new ViewDataDictionary(ViewData))
+            @if (Model.IsAuthorized)
+            {
+                @await Html.PartialAsync("./_userSettings.cshtml",Model ,new ViewDataDictionary(ViewData))
+            }
+           
+
+        </div>
+        <!-- end content tabs -->
+    </div>
+</div>
+</div>

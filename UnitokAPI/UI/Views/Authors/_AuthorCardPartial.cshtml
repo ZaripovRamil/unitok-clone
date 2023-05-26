@@ -1,0 +1,17 @@
+@model AuthorCardVM
+<div class="author">
+    <a href="/profile" class="author__cover author__cover--bg" data-bg="img/bg/bg-small.png">
+    </a>
+    <div class="author__meta">
+        <a href="/profile" class="author__avatar author__avatar--verified">
+            <img src="img/avatars/avatar.jpg" alt="">
+        </a>
+        <h3 class="author__name">
+            <a href="/author/@Model.NickName">@Model.Name</a>
+        </h3>
+        <h3 class="author__nickname">
+            <a href="/author/@Model.NickName">@Model.NickName</a>
+        </h3>
+        <p class="author__text">@Model.Description</p>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Contracts.FrontToBack.EntityCRUDData.EntityCreationData.TokenCreationDataWithFile
+<div class="main__author" data-bg="img/bg/bg.png"></div>
+<div class="container">
+    <div class="row row--grid">
+        @await Html.PartialAsync("_ProfilePartial", ViewData["User"])
+
+        <div class="col-12 col-xl-9">
+            <!-- title -->
+            <div class="main__title main__title--create">
+                <h2>Create item</h2>
+            </div>
+            <!-- end title -->
+
+            <!-- create form -->
+            <form method="post" action="/create" class="sign__form sign__form--create" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="sign__title">Upload file</h4>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="sign__file">
+                            <label id="file1" for="sign__file-upload">e. g. Image, Audio, Video</label>
+                            <input asp-for="File" data-name="#file1" id="sign__file-upload" name="File" class="sign__file-upload" type="file" accept="video/mp4,video/x-m4v,video/*,.png,.jpg,.jpeg">
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <h4 class="sign__title">Item details</h4>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="sign__group">
+                            <label class="sign__label" for="itemname">Item name</label>
+                            <input asp-for="Name" id="itemname" type="text" name="Name" class="sign__input" placeholder="e. g. 'Crypto Heart'">
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="sign__group">
+                            <label class="sign__label" for="description">Description</label>
+                            <textarea asp-for="Description" id="description" name="Description" class="sign__textarea" placeholder="e. g. 'After purchasing you will able to recived...'"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="sign__group">
+                            <label class="sign__label" for="tokenType">Type</label>
+                            <select asp-for="Type" id="tokenType" name="Type" class="sign__select">
+                                <option value="Picture">Picture</option>
+                                <option value="Art">Art</option>
+                                <option value="Meme">Meme</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-right: 10px; padding-left: 10px">
+                        <div class="col-12 col-xl-3">
+                            <button type="submit" class="sign__btn">Create item</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            <!-- end create form -->
+        </div>
+    </div>
+</div>

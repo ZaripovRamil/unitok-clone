@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Mvc;
+@using UI.Models;
+@inject IUrlHelper Url
+
+<span class="sellers-list__number">@number</span>
+<div class="sellers-list__author sellers-list__author--verified">
+	<img src="@Url.Action("GetProfilePicture", "MainPage", new { pictureUrl = seller.AvatarSource })" alt="">
+	<a href="@Url.Action("UserProfile", "Profile", new { username = seller.Name })">@seller.Name</a>
+	<span>@seller.TotalProfit ETH</span>
+</div>
+
+@code {
+	[Parameter]
+	public SellerVM seller { get; set; }
+
+	[Parameter]
+	public int number { get; set; }
+}

@@ -1,0 +1,17 @@
+﻿@model UserSearchResultListVm
+
+@if (Model.Users != null && Model.Users.Any())
+{
+    <ul class="search-results">
+        @foreach (var user in Model.Users)
+        {
+            @await Html.PartialAsync("_UserSearchResultPartial", user)
+            @* Or, if you prefer to use the async version: *@
+            @* @await Html.PartialAsync("_UserSearchResultPartial", user) *@
+        }
+    </ul>
+}
+else
+{
+    <p>No users found.</p>
+}

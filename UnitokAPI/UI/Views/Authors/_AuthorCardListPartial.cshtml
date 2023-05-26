@@ -1,0 +1,12 @@
+@model List<AuthorCardVM>   
+<!-- authors -->
+    <div class="row row--grid">
+        @for (var i = 0; i < Math.Min(8, Model.Count); i++)
+        {
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                @await Html.PartialAsync("_AuthorCardPartial", Model[i], ViewData)
+            </div>
+        }
+    </div>
+    <!-- end authors -->
+

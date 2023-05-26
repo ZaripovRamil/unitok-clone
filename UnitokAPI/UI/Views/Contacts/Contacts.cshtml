@@ -1,0 +1,66 @@
+﻿<div class="container">
+<div class="row row--grid">
+
+    <!-- title -->
+    <div class="col-12">
+        <div class="main__title main__title--page">
+            <h1>Contacts</h1>
+        </div>
+    </div>
+    <!-- end title -->
+</div>
+
+<div class="row row--grid">
+    <div class="col-12 col-lg-7 col-xl-8">
+        <form action="contact/sendFeedback" method="post" class="sign__form sign__form--contacts">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="sign__group">
+                        <input type="text" name="name" class="sign__input" placeholder="Name">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="sign__group">
+                        <input type="text" name="email" class="sign__input" placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="sign__group">
+                        <input type="text" name="subject" class="sign__input" placeholder="Subject">
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="sign__group">
+                        <textarea name="message" class="sign__textarea" placeholder="Type your message"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-3">
+                    <button type="submit" class="sign__btn">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+        <div class="main__title main__title--sidebar">
+            <h2>Waiting for your feedback!</h2>
+            <p>If you have questions, complaints or suggestions, you can send them to us here</p>
+        </div>
+        <ul class="contacts__list">
+            <li>
+                <a href="tel:88002345678">8 800 234-56-78</a>
+            </li>
+            @*<li>
+                <a href="mailto:support@Unitok.com">support@Unitok.com</a>
+            </li>*@
+            <li>
+                <a href="https://goo.gl/maps/xf1yHS5FeMtAtSbBA" class="open-map">st. Kremlin, 35, Kazan, Rep. Tatarstan</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>

@@ -1,0 +1,9 @@
+﻿@model UserSearchResultListVm
+@{
+    Layout = "_Layout";
+}
+<div class="search-results-container">
+    @Html.Partial("_UserSearchResultListPartial", Model)
+    @* Or, if you prefer to use the async version: *@
+    @* @await Html.PartialAsync("_UserSearchResultListPartial", Model) *@
+</div>

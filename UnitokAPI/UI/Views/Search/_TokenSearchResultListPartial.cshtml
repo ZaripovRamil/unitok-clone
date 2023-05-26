@@ -1,0 +1,15 @@
+﻿@model TokenSearchResultListVm
+
+@if (Model.Tokens != null && Model.Tokens.Any())
+{
+    <ul class="search-results">
+        @foreach (var token in Model.Tokens)
+        {
+            @await Html.PartialAsync("_TokenSearchResultPartial", token)
+        }
+    </ul>
+}
+else
+{
+    <p>No tokens found.</p>
+}

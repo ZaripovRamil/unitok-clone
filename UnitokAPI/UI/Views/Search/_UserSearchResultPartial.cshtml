@@ -1,0 +1,11 @@
+﻿@model UserSearchResultVm
+<a href="/author/@Model.Username">
+  <li class="search-result">
+       <img src="@Url.Action("GetProfilePicture", "Profile", new { pictureUrl = Model.ProfilePicUrl })" alt="@Model.FullName">
+      @* <img src="/../@Model.ProfilePicUrl" alt="@Model.FullName" width="50" height="50"/> *@
+      <div class="user-details">
+          <strong>@Model.FullName</strong>
+          <div>@Model.Username</div>
+      </div>
+  </li>  
+</a>

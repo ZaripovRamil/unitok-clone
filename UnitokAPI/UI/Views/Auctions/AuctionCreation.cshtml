@@ -1,0 +1,54 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="main__author" data-bg="~/img/home/cover.jpg"></div>
+<div class="container">
+    <div class="row row--grid">
+        @* @await Html.PartialAsync("../Components/_ProfilePartial") *@
+        <div class="col-12 col-xl-9">
+            <!-- title -->
+            <div class="main__title main__title--create">
+                <h2>Create Auction</h2>
+            </div>
+            <!-- end title -->
+
+            <!-- create form -->
+            <form asp-controller="Auctions" asp-action="AuctionCreation" method="post" class="sign__form sign__form--create">
+                <div class="row">
+
+                    <div class="col-12">
+                        <h4 class="sign__title">Create your auction</h4>
+                    </div>
+                    <div class="validation text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="col-12">
+                        <div class="sign__group">
+                            <label class="sign__label" for="tokenId">Token Id</label>
+                            <input id="tokenId" type="text" name="tokenId" class="sign__input" placeholder="Token Id">
+                        </div>
+                    </div>
+							
+                    <div class="col-12 col-md-4">
+                        <div class="sign__group">
+                            <label class="sign__label" for="startPrice">Start Price</label>
+                            <input id="startPrice" type="text" name="startPrice" class="sign__input" placeholder="Start Price">
+                        </div>
+                    </div>
+                    <div class="col-12"></div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="sign__group">
+                            <label class="sign__label" for="duration">Duration</label>
+                            <input type="number" id="duration" name="duration"
+                                   value="10" class="sign__input form-control" placeholder="Duration">
+                        </div>
+                    </div>
+							
+                    <div class="col-12"></div>
+
+                    <div class="col-12 col-xl-3">
+                        <button type="submit" class="sign__btn">Create item</button>
+                    </div>
+                </div>
+            </form>
+            <!-- end create form -->
+        </div>
+    </div>
+</div>

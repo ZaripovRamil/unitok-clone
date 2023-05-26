@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Mvc;
+@using UI.Models;
+@inject IUrlHelper Url
+
+<div class="card">
+	<a href="@Url.Action("NftToken", "Explore", new { id = token.Id })" class="card__cover">
+		<img src="@Url.Action("GetNFT", "MainPage", new { pictureUrl = token.CoverSource })" alt="">
+	</a>
+	<h3 class="card__title"><a href="@Url.Action("NftToken", "Explore", new { id = token.Id })">@token.Title</a></h3>
+	<div class="card__author card__author--verified">
+		<img src="@Url.Action("GetProfilePicture", "MainPage", new { pictureUrl = token.AvatarSource })" alt="">
+		<a href="@Url.Action("UserProfile", "Profile", new { username = token.Author })">@token.Author</a>
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public TokenCardVM token { get; set; }
+}

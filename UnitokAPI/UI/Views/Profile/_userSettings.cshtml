@@ -1,0 +1,131 @@
+@model UserProfileVM
+<div class="tab-pane fade" id="userSettingsPage" role="tabpanel">
+    <div class="row row--grid">
+        <!-- details form -->
+        <div class="col-12 col-lg-6">
+            <form action="/author/changeDetails" method="post" class="sign__form sign__form--profile">
+                <div  class="row">
+                    <div class="col-12">
+                        <h4 class="sign__title">Profile details</h4>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                        <div class="sign__group">
+                            <label class="sign__label">Login</label>
+                            <input  id="username" type="text" name="username" class="sign__input" placeholder="User123" value="@Model.Nickname" required>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                        <div class="sign__group">
+                            <label class="sign__label" for="email">Email</label>
+                            <span id="email" class="sign__input sign__span">@Model.Email</span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                        <div class="sign__group">
+                            <label class="sign__label" for="firstname">First name</label>
+                            <input id="firstname" type="text" name="firstname" class="sign__input" placeholder="first name" value="@Model.FirstName" required>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                        <div class="sign__group">
+                            <label class="sign__label" for="lastname">Last name</label>
+                            <input id="lastname" type="text" name="lastname" class="sign__input" placeholder="last name" value="@Model.LastName" required>
+                        </div>
+                    </div>
+                    <div class="text-danger"> @Html.ValidationMessage("Details")</div>
+
+                    <div  class="col-12">
+                        <button class="sign__btn" type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- end details form -->
+
+        <!-- password form -->
+        <div class="col-12 col-lg-6">
+            <form  action="/author/changePassword" method="post" class="sign__form sign__form--profile">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="sign__title">Change password</h4>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                        <div class="sign__group">
+                            <label class="sign__label" for="oldpassword">Old password</label>
+                            <input id="username" type="password" name="username" class="sign__input" required>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                        <div class="sign__group">
+                            <label class="sign__label" for="newpassword">New password</label>
+                            <input id="newpassword" type="password" name="newpassword" class="sign__input" required>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                        <div class="sign__group">
+                            <label class="sign__label" for="confirmpassword">Confirm new password</label>
+                            <input id="confirmpassword" type="password" name="confirmpassword" class="sign__input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="text-danger"> @Html.ValidationMessage("Password")</div>
+                    <div class="col-12">
+                        <button class="sign__btn" type="submit">Change</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- end password form -->
+        
+        
+        <div class="col-12 col-lg-6">
+                    <form action="/author/changeBalance" method="post" class="sign__form">
+                        <div  class="row">
+                            <div class="col-12">
+                                <h4 class="sign__title">Replenish the balance</h4>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                <div class="sign__group">
+                                    <label class="sign__label" for="mainWallet">Your Wallet</label>
+                                    <span id="mainWallet" class="sign__input sign__span">@Model.Wallet</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                <div class="sign__group">
+                                    <label class="sign__label" for="Wallet">Other wallet</label>
+                                    <input id="username" type="text" name="username" class="sign__input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                <div class="sign__group">
+                                    <label class="sign__label" for="seed">Seed</label>
+                                    <input id="seed" type="text" name="seed" class="sign__input" placeholder="seed" required>
+                                </div>
+                            </div>
+        
+                            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                <div class="sign__group">
+                                    <label class="sign__label" for="amount">Replenishment amount</label>
+                                    <input id="amount" type="number" name="amount" class="sign__input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="text-danger"> @Html.ValidationMessage("Balance")</div>
+                            <div class="col-12">
+                                <button class="sign__btn" type="submit">Ok</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    </div>
+</div>
